@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Report — SW-2960</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+        h1 {
+            color: #0071e3;
+            border-bottom: 2px solid #0071e3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1d1d1f;
+            margin-top: 40px;
+        }
+        .meta {
+            color: #6e6e73;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        th {
+            background: #0071e3;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e5e5e7;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover {
+            background: #f0f7ff;
+        }
+        .status-up {
+            color: #34c759;
+            font-weight: 600;
+        }
+        .status-down {
+            color: #ff3b30;
+            font-weight: 600;
+        }
+        .footer {
+            text-align: center;
+            color: #6e6e73;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Network Report — SW-2960</h1>
+    <div class="meta">
+        Собрано: 2026-09-23T20:18:40.268033<br>
+        Сгенерировано: 2026-09-23 21:04:01
+    </div>
+
+    <h2>📋 VLANs (7)</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Ports</th>
+        </tr>
+        <tr><td>1</td><td>default</td><td>active</td><td>Fa0/1, Fa0/2, Fa0/4, Fa0/5, Fa0/6, Fa0/7, Fa0/8, Gi0/1</td></tr>
+        <tr><td>100</td><td>LAB-USERS</td><td>active</td><td>Fa0/3</td></tr>
+        <tr><td>200</td><td>LAB-SERVERS</td><td>active</td><td>—</td></tr>
+        <tr><td>1002</td><td>fddi-default</td><td>act/unsup</td><td>—</td></tr>
+        <tr><td>1003</td><td>token-ring-default</td><td>act/unsup</td><td>—</td></tr>
+        <tr><td>1004</td><td>fddinet-default</td><td>act/unsup</td><td>—</td></tr>
+        <tr><td>1005</td><td>trnet-default</td><td>act/unsup</td><td>—</td></tr>
+    </table>
+
+    <h2>🔌 Interfaces (10)</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>IP Address</th>
+            <th>Status</th>
+            <th>Protocol</th>
+        </tr>
+        <tr><td>Vlan1</td><td>10.100.20.10</td><td class='status-up'>up</td><td>up</td></tr>
+        <tr><td>FastEthernet0/1</td><td>unassigned</td><td class='status-up'>up</td><td>up</td></tr>
+        <tr><td>FastEthernet0/2</td><td>unassigned</td><td class='status-up'>up</td><td>up</td></tr>
+        <tr><td>FastEthernet0/3</td><td>unassigned</td><td class='status-down'>down</td><td>down</td></tr>
+        <tr><td>FastEthernet0/4</td><td>unassigned</td><td class='status-down'>down</td><td>down</td></tr>
+        <tr><td>FastEthernet0/5</td><td>unassigned</td><td class='status-down'>down</td><td>down</td></tr>
+        <tr><td>FastEthernet0/6</td><td>unassigned</td><td class='status-down'>down</td><td>down</td></tr>
+        <tr><td>FastEthernet0/7</td><td>unassigned</td><td class='status-down'>down</td><td>down</td></tr>
+        <tr><td>FastEthernet0/8</td><td>unassigned</td><td class='status-down'>down</td><td>down</td></tr>
+        <tr><td>GigabitEthernet0/1</td><td>unassigned</td><td class='status-down'>down</td><td>down</td></tr>
+    </table>
+
+    <h2>🔗 Ports (9)</h2>
+    <table>
+        <tr>
+            <th>Port</th>
+            <th>Status</th>
+            <th>VLAN</th>
+            <th>Duplex</th>
+            <th>Speed</th>
+        </tr>
+        <tr><td>Fa0/1</td><td>connected</td><td>1</td><td>a-full</td><td>a-100</td></tr>
+        <tr><td>Fa0/2</td><td>connected</td><td>1</td><td>a-full</td><td>a-100</td></tr>
+        <tr><td>Fa0/3</td><td>notconnect</td><td>100</td><td>auto</td><td>auto</td></tr>
+        <tr><td>Fa0/4</td><td>notconnect</td><td>1</td><td>auto</td><td>auto</td></tr>
+        <tr><td>Fa0/5</td><td>notconnect</td><td>1</td><td>auto</td><td>auto</td></tr>
+        <tr><td>Fa0/6</td><td>notconnect</td><td>1</td><td>auto</td><td>auto</td></tr>
+        <tr><td>Fa0/7</td><td>notconnect</td><td>1</td><td>auto</td><td>auto</td></tr>
+        <tr><td>Fa0/8</td><td>notconnect</td><td>1</td><td>auto</td><td>auto</td></tr>
+        <tr><td>Gi0/1</td><td>notconnect</td><td>1</td><td>auto</td><td>auto</td></tr>
+    </table>
+
+    <div class="footer">
+        Generated by report_generator.py
+    </div>
+</body>
+</html>
