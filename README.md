@@ -54,6 +54,14 @@ graph TB
 
 For old Cisco IOS (12.2), we use `paramiko 3.5.1` with explicit KEX algorithms in `~/.ssh/config`. This is more reliable than `ansible_legacy_ssh=true`.
 
+## Compatibility Notes
+
+- **IOS 12.2(50)SE5** on Catalyst 2960 — legacy version
+- `cisco.ios.ios_vlans` not supported (requires IOS 12.3+)
+- `cisco.ios.ios_config` works but reports `changed=1` on each run 
+  (idempotency limited by legacy IOS)
+- This is a common trade-off when automating legacy network devices
+
 ## Security Practices
 
 - Passwords stored in encrypted Ansible Vault (`group_vars/switches/vault.yml`)

@@ -8,12 +8,14 @@
         lines:
           - name LAB-USERS
         parents: vlan 100
+        match: line
 
     - name: Создать VLAN 200 (LAB-SERVERS)
       cisco.ios.ios_config:
         lines:
           - name LAB-SERVERS
         parents: vlan 200
+        match: line
 
     - name: Сохранить конфигурацию
       cisco.ios.ios_config:
