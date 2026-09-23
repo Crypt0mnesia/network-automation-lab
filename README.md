@@ -34,6 +34,49 @@ graph TB
     LAN --> SW
     SW --> Mac
 ```
+## UserGate NGFW Configuration
+
+### Interfaces and Zones
+
+- **port0 (WAN)**: `10.1.10.50/24`, zone `Untrusted`
+- **port1 (LAN)**: `10.100.20.1/24`, zone `Trusted`
+
+![Interfaces](docs/screenshots/02-interfaces.png)
+
+### Default Gateway
+
+Gateway `ISP-H` (`10.1.10.2`) configured as default route.
+
+![Gateway](docs/screenshots/03-gateway.png)
+
+### DHCP for Lab
+
+DHCP subnet `HQ-TRUSTED` provides addresses `10.100.20.100-200`.
+
+![DHCP](docs/screenshots/04-dhcp.png)
+
+### NAT (SNAT)
+
+Rule `SNAT-HQ-TO-INTERNET` translates addresses from `Trusted` to `Untrusted`.
+
+![NAT](docs/screenshots/05-nat-snat.png)
+
+### Firewall Policy
+
+Rule `Allow trusted to untrusted` permits traffic from lab to internet.
+
+![Firewall](docs/screenshots/06-firewall-rules.png)
+
+### Network Status Verification (CLI)
+
+Verification of interfaces, routes, and connectivity:
+
+![CLI network status](docs/screenshots/07-cli-network-status.png)
+
+### Dashboard
+
+![Dashboard](docs/screenshots/01-dashboard.png)
+
 ## Tech Stack
 
 - Ansible 2.21.4
@@ -83,10 +126,6 @@ For old Cisco IOS (12.2), we use `paramiko 3.5.1` with explicit KEX algorithms i
 source ~/ansible-venv/bin/activate
 ansible-playbook -i inventory.ini playbooks/gather_facts.yml --ask-vault-pass
 ```
-
-## Documentation
-
-- [IP Plan](docs/ip-plan.md)
 
 ## Screenshots
 
