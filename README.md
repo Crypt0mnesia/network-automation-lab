@@ -7,7 +7,33 @@ Lab built on real hardware: UserGate NGFW + Cisco Catalyst 2960.
 - **UserGate NGFW**: WAN `10.1.10.50/24`, LAN `10.100.20.1/24`, DHCP, NAT, firewall
 - **Catalyst 2960**: L2 switch, VLAN 1, SSH `10.100.20.10`
 - **Ansible**: control node on macOS
+## Topology
 
+```mermaid
+graph TB
+    Internet([🌐 Internet])
+    
+    Router[Router<br/>10.1.10.2]
+    CG[Catalyst 3560-CG<br/>Home switch]
+    
+    subgraph UG["UserGate D200/500 (NGFW)"]
+        WAN[port0 WAN<br/>10.1.10.50/24<br/>Zone: Untrusted]
+        LAN[port1 LAN<br/>10.100.20.1/24<br/>Zone: Trusted]
+        UG_SVC[DHCP: 10.100.20.100-200<br/>NAT: Trusted → Untrusted<br/>Firewall: Allow Trusted → Untrusted]
+    end
+    
+    SW[Cisco Catalyst 2960<br/>VLAN 1<br/>IP: 10.100.20.10<br/>SSH: ansible]
+    
+    Mac[💻 MacBook<br/>10.100.20.x<br/>Ansible Control Node<br/>- 4 playbooks<br/>- Ansible Vault]
+    
+    Internet --> Router
+    Router --> CG
+    CG --> WAN
+    WAN --- UG_SVC
+    UG_SVC --- LAN
+    LAN --> SW
+    SW --> Mac
+```
 ## Tech Stack
 
 - Ansible 2.21.4
