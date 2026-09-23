@@ -83,3 +83,57 @@ For old Cisco IOS (12.2), we use `paramiko 3.5.1` with explicit KEX algorithms i
 source ~/ansible-venv/bin/activate
 ansible-playbook -i inventory.ini playbooks/gather_facts.yml --ask-vault-pass
 ```
+
+## Documentation
+
+- [IP Plan](docs/ip-plan.md)
+
+## Screenshots
+
+### VLANs on Catalyst 2960
+
+![VLANs](docs/screenshots/vlans.png)
+
+*VLAN 100 (LAB-USERS) and VLAN 200 (LAB-SERVERS) created via Ansible.*
+
+### Port Security on FastEthernet0/3
+
+![Port Security](docs/screenshots/port-security.png)
+
+*Port-security configured via Ansible: Restrict mode, max 2 MAC addresses.*
+
+### Interface Status
+
+![Interfaces](docs/screenshots/ip-interfaces.png)
+
+*Vlan1 up/up with management IP `10.100.20.10`. Fa0/1 and Fa0/2 connected.*
+
+### Device Version
+
+![Show Version](docs/screenshots/show-version.png)
+
+*Cisco IOS 12.2(50)SE5 on WS-C2960-8TC-L.*
+
+### Running Configuration
+
+![Running Config](docs/screenshots/running-config.png)
+
+*Full running-config with port-security and VLANs (password hash masked).*
+
+### Ansible Playbook Results
+
+#### Gather Facts
+
+![Gather Facts](docs/screenshots/ansible-gather-facts.png)
+
+*Device info collected — IOS 12.2(50)SE5.*
+
+#### Configure Port Security (idempotent)
+
+![Port Security](docs/screenshots/ansible-port-security.png)
+
+*Repeated run shows `changed=0` — playbook is idempotent.*
+
+## Documentation
+
+- [IP Plan](docs/ip-plan.md) — Network addressing scheme (home + lab)
