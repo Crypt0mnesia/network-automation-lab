@@ -50,6 +50,15 @@ graph TB
 | `configure_vlan.yml` | Create VLANs 100 and 200 |
 | `configure_port_security.yml` | Configure port-security on access ports |
 
+## Results
+
+| Playbook | Status |
+|---|---|
+| `gather_facts.yml` | ✅ Collected device info (IOS 12.2(50)SE5) |
+| `backup_config.yml` | ✅ Saved running-config with timestamp |
+| `configure_vlan.yml` | ✅ Created VLAN 100 (LAB-USERS) and VLAN 200 (LAB-SERVERS) |
+| `configure_port_security.yml` | ✅ Configured port-security on Fa0/3 (Restrict, max 2 MAC) |
+
 ## Legacy SSH Support
 
 For old Cisco IOS (12.2), we use `paramiko 3.5.1` with explicit KEX algorithms in `~/.ssh/config`. This is more reliable than `ansible_legacy_ssh=true`.
