@@ -1,0 +1,21 @@
+---
+- name: Сохранить running-config с Catalyst 2960
+  hosts: switches
+  gather_facts: no
+  tasks:
+    - name: Получить running-config
+      cisco.ios.ios_command:
+        commands: show running-config
+      register: config_output
+
+    - name: Получить timestamp
+      command: date +%Y-%m-%dT%H-%M-%S
+      register: timestamp
+      delegate_to: localhost
+      run_once: true
+
+    - name: Сохранить в файл с timestamp
+      copy:
+        content: "{{ config_output.stdout[0] }}"
+        dest: "{{ playbook_dir }}/../backups/sw-2960_{{ timestamp.stdout }}.cfg"
+      delegate_to: localhost

@@ -1,0 +1,20 @@
+# Secrets and backups
+backups/
+*.cfg
+*.retry
+.vault_pass
+inventory.ini
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# PyCharm
+.idea/
+*.iml

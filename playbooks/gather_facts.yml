@@ -1,0 +1,12 @@
+---
+- name: Собрать информацию с Catalyst 2960
+  hosts: switches
+  gather_facts: no
+  tasks:
+    - name: Получить факты об устройстве
+      cisco.ios.ios_facts:
+      register: device_info
+
+    - name: Показать версию IOS
+      debug:
+        msg: "Устройство {{ inventory_hostname }}: IOS {{ device_info.ansible_facts.ansible_net_version }}"

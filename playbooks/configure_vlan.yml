@@ -1,0 +1,20 @@
+---
+- name: Создать VLAN на Catalyst 2960
+  hosts: switches
+  gather_facts: no
+  tasks:
+    - name: Создать VLAN 100 (LAB-USERS)
+      cisco.ios.ios_config:
+        lines:
+          - name LAB-USERS
+        parents: vlan 100
+
+    - name: Создать VLAN 200 (LAB-SERVERS)
+      cisco.ios.ios_config:
+        lines:
+          - name LAB-SERVERS
+        parents: vlan 200
+
+    - name: Сохранить конфигурацию
+      cisco.ios.ios_config:
+        save_when: modified

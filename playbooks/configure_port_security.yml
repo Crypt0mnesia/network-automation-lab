@@ -1,0 +1,20 @@
+---
+- name: Настроить port-security на access-портах
+  hosts: switches
+  gather_facts: no
+  tasks:
+    - name: Настроить port-security на Fa0/3
+      cisco.ios.ios_config:
+        parents: "interface FastEthernet0/3"
+        lines:
+          - switchport mode access
+          - switchport access vlan 100
+          - switchport port-security
+          - switchport port-security maximum 2
+          - switchport port-security violation restrict
+          - spanning-tree portfast
+          - spanning-tree bpduguard enable
+
+    - name: Сохранить конфигурацию
+      cisco.ios.ios_config:
+        save_when: modified
