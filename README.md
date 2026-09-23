@@ -183,7 +183,7 @@ Automation scripts for data collection and reporting:
 | `scripts/parse_configs.py` | Parse VLANs, interfaces, ports from raw output |
 | `scripts/report_generator.py` | Generate HTML report from parsed data |
 
-### How to Run
+### Running Python Scripts
 
 1. Activate venv: `source .venv/bin/activate`
 2. Collect data: `python scripts/netmiko_collect.py`
@@ -194,6 +194,18 @@ Automation scripts for data collection and reporting:
 - `output/facts.json` — raw data from switch
 - `output/parsed.json` — structured data
 - `output/report.html` — HTML report
+
+### UserGate API Integration
+
+`usergate_api.py` connects to UserGate NGFW via XML-RPC API:
+
+- Authenticates as `api_admin`
+- Fetches firewall rules (8 rules)
+- Saves data to `output/usergate_data.json`
+
+![UserGate API](docs/screenshots/usergate-api.png)
+
+*Requires XML-RPC enabled in the `Trusted` zone and an API admin user.*
 
 ## Live Demo
 
