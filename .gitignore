@@ -18,3 +18,36 @@ venv/
 # PyCharm
 .idea/
 *.iml
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Secrets
+.env
+scripts/.env
+*.pem
+*.key
+
+# Ansible
+*.retry
+group_vars/*/vault.yml
+
+# Backups
+backups/
+*.cfg
+
+# Output (скрипты)
+output/
