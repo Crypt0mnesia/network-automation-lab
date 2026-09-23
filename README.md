@@ -173,6 +173,36 @@ ansible-playbook -i inventory.ini playbooks/gather_facts.yml --ask-vault-pass
 
 *Repeated run shows `changed=0` — playbook is idempotent.*
 
+## Python Scripts
+
+Automation scripts for data collection and reporting:
+
+| Script | Description |
+|---|---|
+| `scripts/netmiko_collect.py` | Collect facts from Catalyst 2960 via Netmiko (SSH) |
+| `scripts/parse_configs.py` | Parse VLANs, interfaces, ports from raw output |
+| `scripts/report_generator.py` | Generate HTML report from parsed data |
+
+### How to Run
+
+1. Activate venv: `source .venv/bin/activate`
+2. Collect data: `python scripts/netmiko_collect.py`
+3. Parse data: `python scripts/parse_configs.py`
+4. Generate HTML report: `python scripts/report_generator.py`
+
+**Output:**
+- `output/facts.json` — raw data from switch
+- `output/parsed.json` — structured data
+- `output/report.html` — HTML report
+
+## Live Demo
+
+📊 **[View the live HTML report](https://crypt0mnesia.github.io/network-automation-lab/)** — generated from Catalyst 2960 data
+
+*Shows VLANs, interfaces, and port status collected via Netmiko.*
+
 ## Documentation
 
-- [IP Plan](docs/ip-plan.md) — Network addressing scheme (home + lab)
+- [IP Plan](docs/ip-plan.md) — Network addressing scheme
+- [📄 HTML Report (live)](https://crypt0mnesia.github.io/network-automation-lab/) — Interactive report on GitHub Pages
+- [📄 PDF Report](docs/network-report.pdf) — Downloadable PDF version
